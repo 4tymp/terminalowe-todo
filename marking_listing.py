@@ -1,5 +1,7 @@
+import datetime
+
 from classes import Task
-from utils import pull_from_quotes, pull_id
+from utils import pull_id, pull_status
 
 # funckja markujaca progress taska
 def mark(task_input, tasks, progress):
@@ -10,9 +12,21 @@ def mark(task_input, tasks, progress):
     elif progress == "done":
         tasks[id].status = "done"
 
-# funkcja pokazujaca liste wszystkich taskow
-def show_list(tasks):
-    print("id | status | opis")
+    tasks[id].updated_at = datetime.datetime.now()
 
+
+#funkcja pokazujaca wybrana liste wedlug statusu
+def show_list(task_input, tasks):
+    status = pull_status(task_input)
+
+    if status == None:
+        return None
+    # failsafe
+    
+    print("id | status | opis")
+        
     for i in tasks:
-        print(f"{i.id} | {i.status} | {i.desc}")
+        if status == "samo" or i.status == status:
+            print(f"{i.id} | {i.status} | {i.desc}")
+
+

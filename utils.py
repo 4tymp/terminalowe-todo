@@ -19,3 +19,13 @@ def pull_id(task_index):
     else:
         print("Brak poprawnego numeru")
         return None
+    
+#funkcja wyciagajaca status
+def pull_status(task_index):
+    parts = task_index.split()
+    if len(parts) == 1:
+        return "samo"
+    elif parts[1] == "done" or parts[1] == "todo" or parts[1] == "in-progress":
+        return parts[1]
+    else:
+        return None

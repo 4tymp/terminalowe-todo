@@ -13,20 +13,20 @@ while True:
     if task_input.startswith("add "): #jezeli zaczyna sie z add
         adding(task_input, tasks)
     
-    if task_input.startswith("update "): # jezeli zaczyna sie z update
+    elif task_input.startswith("update "): # jezeli zaczyna sie z update
         updating(task_input, tasks)
 
-    if task_input.startswith("delete "): # jezeli zaczyna sie z delete
+    elif task_input.startswith("delete "): # jezeli zaczyna sie z delete
         deleting(task_input, tasks)
 
-    if task_input.startswith("mark-in-progress "): # jezeli zaczyna sie z mark-in-progress
+    elif task_input.startswith("mark-in-progress "): # jezeli zaczyna sie z mark-in-progress
         mark(task_input, tasks, "in-progress")
 
-    if task_input.startswith("mark-done "): # jezeli zaczyna sie z mark-done
+    elif task_input.startswith("mark-done "): # jezeli zaczyna sie z mark-done
         mark(task_input, tasks, "done")
 
-    if task_input == "list":
-        show_list(tasks)
+    elif task_input.startswith("list"): # jezeli zaczyna sie z list
+        show_list(task_input, tasks)
 
-    if task_input == "quit":
+    elif task_input == "quit":
         break
