@@ -1,6 +1,6 @@
 
 from classes import Task
-from functions import adding
+from task_operations import adding, updating
 
 tasks = []
 
@@ -13,7 +13,7 @@ while True:
         adding(task_input, tasks)
     
     if task_input.startswith("update "): # jezeli zaczyna sie z update
-        x = 2
+        updating(task_input, tasks)
 
     if task_input == "quit":
         break

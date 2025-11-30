@@ -17,3 +17,7 @@ def adding(task, tasks):
         
         else:
             print("Brak drugiego cudzysłowa")
+
+
+def updating(task_input, tasks):
+    print("chuj")
