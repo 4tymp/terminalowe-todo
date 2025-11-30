@@ -1,7 +1,7 @@
 
 from classes import Task
 from task_operations import adding, updating, deleting
-from marking_listing import mark
+from marking_listing import mark, show_list
 
 tasks = [] ## lista nam potrzebna do mozliwosci dzialania na obiektoach!
 
@@ -24,6 +24,9 @@ while True:
 
     if task_input.startswith("mark-done "): # jezeli zaczyna sie z mark-done
         mark(task_input, tasks, "done")
+
+    if task_input == "list":
+        show_list(tasks)
 
     if task_input == "quit":
         break

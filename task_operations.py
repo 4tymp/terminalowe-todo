@@ -1,3 +1,5 @@
+import datetime
+
 from classes import Task
 from utils import pull_from_quotes, pull_id
 
@@ -27,6 +29,7 @@ def updating(task_input, tasks):
         return None
     
     tasks[id].desc = new_desc # dodaje nowy opis
+    tasks[id].updated_at = datetime.datetime.now()
 
 # funkcja zajmujaca sie usuwaniem
 def deleting(task_input, tasks):
