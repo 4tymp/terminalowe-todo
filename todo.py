@@ -1,6 +1,6 @@
 import datetime
 
-task_id = []
+tasks = []
 
 class Task:
     def __init__(self,id,desc):
@@ -22,20 +22,18 @@ while True:
         if "\"" in task: # \" - cudzyslow w pythonie ziomek
             first_quote = task.find("\"") # pierwszego cudzyslowia szuka
             second_quote = task.rfind("\"") # ostatniego cudzyslowia szuka
-            #if first_quote > second_quote:
-            task_desc = task[first_quote+1: second_quote] # wrzuca do zmiennej task_descr to co jest pomiedzy cudzyslowami (dajemy +1 zeby nie zaczelo od cudzyslowia)
-            task_id.append(task_desc)
-            i = 0
-            while i < len(task_id):
-                object_name = "obiekt"+str(i)
-                object_name = Task(i,task_desc)
-                print(i)
-                print(object_name.id)
-                print(object_name.desc)
-            
-                i += 1
-                    
+            if first_quote < second_quote:
+                task_desc = task[first_quote+1: second_quote] # wrzuca do zmiennej task_descr to co jest pomiedzy cudzyslowami (dajemy +1 zeby nie zaczelo od cudzyslowia)
+                new_task = Task(len(tasks), task_desc)
+                tasks.append(new_task)
+                
+                
+                print(new_task.id)
+                print(new_task.desc)
+                print(new_task.status)
+                print(new_task.created_at)
+                print(new_task.updated_at)
 
 
-            #else:
+            else:
                 print("Brak drugiego cudzysłowa")
