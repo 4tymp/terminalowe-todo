@@ -14,7 +14,7 @@ def pull_from_quotes(task_input):
 def pull_id(task_index):
     parts = task_index.split() # split() dzieli tekst wedlug spacji na liste slow
 
-    if len(parts) > 2 and parts[1].isdigit(): # sprawdza czy w liscie parts jest wiecej nz 2 elementy, a potem czy rzecz na indexie 1 jest liczba
+    if parts[1].isdigit(): # sprawdza czy w liscie parts jest wiecej nz 2 elementy, a potem czy rzecz na indexie 1 jest liczba
         return int(parts[1]) # oddaje liczbe jako int (znowu to co jest na liscie w indexie 1)
     else:
         print("Brak poprawnego numeru")

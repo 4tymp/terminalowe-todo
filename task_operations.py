@@ -24,7 +24,14 @@ def updating(task_input, tasks):
     ## konczy funkcje orzedwczesnie jesli komenda zostala zle wpisana
     if id == None or new_desc == None:
         return None
-    print(tasks[id].desc + " przed")
-    tasks[id].desc = new_desc
+    
+    tasks[id].desc = new_desc # dodaje nowy opis
 
-    print(tasks[id].desc + " po")
+def deleting(task_input, tasks):
+    id = pull_id(task_input)
+
+    # failsafe
+    if id == None:
+        return None
+    
+    del tasks[id] # usuwanie

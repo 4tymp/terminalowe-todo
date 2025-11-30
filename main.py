@@ -1,6 +1,6 @@
 
 from classes import Task
-from task_operations import adding, updating
+from task_operations import adding, updating, deleting
 
 tasks = []
 
@@ -14,6 +14,9 @@ while True:
     
     if task_input.startswith("update "): # jezeli zaczyna sie z update
         updating(task_input, tasks)
+
+    if task_input.startswith("delete "): # jezeli zaczyna sie z delete
+        deleting(task_input, tasks)
 
     if task_input == "quit":
         break
