@@ -1,22 +1,16 @@
 from classes import Task
+from utils import pull_from_quotes
 
-def adding(task, tasks):
+def adding(task_input, tasks):
     #wyciagamy srodek cudzyslowia
-    if "\"" in task: # \" - cudzyslow w pythonie ziomek
-        first_quote = task.find("\"") # pierwszego cudzyslowia szuka
-        second_quote = task.rfind("\"") # ostatniego cudzyslowia szuka
-        
-        if first_quote < second_quote:    
-            task_desc = task[first_quote+1: second_quote] # wrzuca do zmiennej task_descr to co jest pomiedzy cudzyslowami (dajemy +1 zeby nie zaczelo od cudzyslowia)
+    if "\"" in task_input: # \" - cudzyslow w pythonie ziomek
+            task_desc = pull_from_quotes(task_input)       
             
             new_task = Task(len(tasks), task_desc) # tworzy obiekt z nowym taskiem i kolejnym id w kolejce
             
             tasks.append(new_task) #dodaje taska do listy tasks zeby dalo sie ladnie odwolac (id w tasku to index w liscie)
             
             print(f"Pomyślnie dodano task (id: {new_task.id})")
-        
-        else:
-            print("Brak drugiego cudzysłowa")
 
 
 def updating(task_input, tasks):
