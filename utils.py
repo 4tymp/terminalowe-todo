@@ -1,3 +1,23 @@
+import json
+import os
+from classes import Task
+
+FILE = "tasks.json"
+
+def save(tasks):
+    data = [task.to_dict() for task in tasks]
+    with open(FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
+
+def load():
+    if not os.path.exists(FILE):
+        return []
+
+    with open(FILE, "r", encoding="utf-8") as f:
+        raw = json.load(f)
+
+    return [Task.from_dict(item) for item in raw]
+
 #funkcja wyciagajaca slowa spomiedzy cudzyslowiow
 def pull_from_quotes(task_input):
         first_quote = task_input.find("\"") # pierwszego cudzyslowia szuka
