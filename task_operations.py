@@ -1,6 +1,7 @@
 from classes import Task
 from utils import pull_from_quotes, pull_id
 
+# funkcja zajmujaca sie dodawaniem
 def adding(task_input, tasks):
     
     task_desc = pull_from_quotes(task_input) # wyciaga z cudzyslowow tekst
@@ -15,7 +16,7 @@ def adding(task_input, tasks):
     
     print(f"Pomyślnie dodano task (id: {new_task.id})")
 
-
+#funkcja zajmujaca sie aktualizowaniem
 def updating(task_input, tasks):
     id = pull_id(task_input)
 
@@ -27,6 +28,7 @@ def updating(task_input, tasks):
     
     tasks[id].desc = new_desc # dodaje nowy opis
 
+# funkcja zajmujaca sie usuwaniem
 def deleting(task_input, tasks):
     id = pull_id(task_input)
 
