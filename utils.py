@@ -9,7 +9,6 @@ def pull_from_quotes(task_input):
         else:
             print("Brak odpowiednich cudzysłowów")
             return None
-            
 
 #funkcja wyciagajaca indexy
 def pull_id(task_index):
